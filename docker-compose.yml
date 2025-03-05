@@ -1,0 +1,21 @@
+services:
+  portfolio-tutorial:
+    restart: always
+    container_name: portfolio-tutorial
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - "230:80"   # Map external port 200 to container's port 80
+    networks:
+      - shared
+networks:
+  shared:
+    name: shared
+    external: true
+
+
+
+    
